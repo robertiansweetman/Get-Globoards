@@ -1,31 +1,24 @@
 . ($PSScriptRoot + "./secrets.ps1")
-# TODO: turn all these calls into functions
-# TODO: put all this code on github
+. ($PSScriptRoot + "./list-Boards.ps1")
+. ($PSScriptRoot + "./reset-Boards.ps1")
 
-$response = Invoke-RestMethod -Uri "https://$url/boards?$token" -Method Get -ContentType "application/json"
+# TODO: function names SHOULD match the API calls they're making really...
 
-$listOfBoards = @()
-
-$boardsId = foreach ($item in $response) {
-    $listOfBoards += $item
-}
+# TODO: is there a neater way to get this list and pipe it into the other functions?
+$listBoards = list-Boards
 
 # TODO: Make this print the name and possibly the Id but in a much nicer format
-for ($i = 0; $i -lt $listOfBoards.length; $i++) {
-    Write-Host "Choose"($listOfBoards[$i]).name":" ($1++ + 1)
+for ($i = 0; $i -lt $listBoards.length; $i++) {
+    Write-Host "To update"($listBoards[$i]).name"select:" ($1++ + 1)
 }
 
-$boardChoice = Read-Host -Prompt "Pick Which board to Update"
+$boardChoice = Read-Host -Prompt "Select which board to update"
 
-$boardId = ($listOfBoards[$boardChoice - 1]).id | Out-Host
+$boardId = ($listBoards[$boardChoice - 1]).id | Out-Host
 
-$boardName = ($listOfBoards[$boardChoice - 1]).name | Out-Host
+$boardName = ($listboards[$boardChoice - 1]).name | Out-Host
 
-function Reset {
-    $boardId = $null;
-    $boardName = $null
-}
-
-Reset
-
+# TODO: can you mock this stuff using Pester? No idea. Leave this for now...
+# TODO: remove this later. It's only for testing the workflow at the moment
+reset-Boards
 Write-Host $boardId $boardName "empty string"
