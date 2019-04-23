@@ -12,7 +12,18 @@ for ($i = 0; $i -lt $listBoards.length; $i++) {
     Write-Host "To update"($listBoards[$i]).name"select:" ($1++ + 1)
 }
 
+# TODO: Include error handling in here, at the moment you can type any old crap - USE TRY CATCH INSTEAD?
 $boardChoice = Read-Host -Prompt "Select which board to update"
+
+if (($boardChoice -le 0) -or ($boardChoice -gt $listBoards.length)) {
+    # get numbers out of bounds
+    Read-Host -Prompt "Select an option between 1 and "$listBoards.length
+    # try to break this 
+} elseif()#how do you deal with checking for non number types in here? {
+    Read-Host -Prompt "Select an option between 1 and "$listBoards.length
+} else {
+    # carry on (Read-Host again)
+}
 
 $boardId = ($listBoards[$boardChoice - 1]).id | Out-Host
 
