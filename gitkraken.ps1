@@ -13,8 +13,11 @@ for ($i = 0; $i -lt $listBoards.length; $i++) {
 }
 
 # TODO: Include error handling in here, at the moment you can type any old crap - USE TRY CATCH INSTEAD?
-$boardChoice = Read-Host -Prompt "Select which board to update"
 
+Do { $boardChoice = Read-Host -Prompt "Select which board to update"} 
+while ((0..$listBoards.length) -notcontains $boardChoice)
+
+<#
 if (($boardChoice -le 0) -or ($boardChoice -gt $listBoards.length)) {
     # get numbers out of bounds
     Read-Host -Prompt "Select an option between 1 and "$listBoards.length
@@ -24,6 +27,7 @@ if (($boardChoice -le 0) -or ($boardChoice -gt $listBoards.length)) {
 } else {
     # carry on (Read-Host again)
 }
+#>
 
 $boardId = ($listBoards[$boardChoice - 1]).id | Out-Host
 
