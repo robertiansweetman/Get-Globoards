@@ -3,6 +3,10 @@
 . ($PSScriptRoot + "./reset-Boards.ps1")
 . ($PSScriptRoot + "./new-Board.ps1")
 
+# FIXME: Begin turning this into a module now before anyone else gets hurt!
+# NOTE: Update board needs to INCLUDE the 'get list' funtion for it to work <-- pay attention to this!
+# NOTE: Is there an 'include' for powershell or are we .Sourcing everything? <-- redo 'creating modules' course...
+
 # TODO: function names SHOULD match the API calls they're making really...
 
 # TODO: is there a neater way to get this list and pipe it into the other functions?
