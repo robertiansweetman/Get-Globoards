@@ -1,25 +1,25 @@
 function new-Board {
 
     param(
-        #[Parameter(Mandatory = $true)]
-        #[String[]]
-        $Name#,
-        #$url,
-        #$token
+        [Parameter(Mandatory = $true)]
+        [String]
+        $Name
     )
 
 $bodyJson=@{
 name=$Name
 } | ConvertTo-Json
 
-    Write-Host "$bodyJson"
+    Write-Verbose "$bodyJson"
 
     $link = "https://$url/boards?$token"
 
-    Write-Host $link
+    Write-Verbose $link
 
-Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json' -ErrorVariable err
-Write-Host $err
+    # TODO: Consider better error handling at this step also...
+    Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json' -ErrorVariable err
+    
+    Write-Verbose $err
 
     # NOTE: there is a limit of 10 new boards per day for boards created via API
 

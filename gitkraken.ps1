@@ -23,6 +23,6 @@ $boardName = ($listboards[$boardChoice - 1]).name #| Out-Host
 # TODO: can you mock this stuff using Pester? No idea. Leave this for now...
 # TODO: remove this later. It's only for testing the workflow at the moment
 # reset-Boards
-Write-Host "$boardId $boardName empty string"
+Write-Verbose "$boardId $boardName empty string"
 
-new-Board 'testboard'
+New-Board -Name testthisagain -Verbose
