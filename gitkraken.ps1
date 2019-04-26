@@ -2,6 +2,7 @@
 . ($PSScriptRoot + "./list-Boards.ps1")
 . ($PSScriptRoot + "./reset-Boards.ps1")
 . ($PSScriptRoot + "./new-Board.ps1")
+. ($PSScriptRoot + "./new-Column.ps1")
 
 # FIXME: Begin turning this into a module now before anyone else gets hurt!
 # NOTE: Update board needs to INCLUDE the 'get list' funtion for it to work <-- pay attention to this!
@@ -29,4 +30,9 @@ $boardName = ($listboards[$boardChoice - 1]).name #| Out-Host
 # reset-Boards
 Write-Verbose "$boardId $boardName empty string"
 
-New-Board -Name testthisagain -Verbose
+New-Board -Name slimshady -Verbose
+
+# FIXME: Need to select Board or get a boards from list BEFORE running this to create a new column
+# TODO: figure out why -ErrorVariable and Write-Verbose in Invoke-RestMethod keeps breaking everything
+
+New-Column -Name pleasestandup -boardId $boardId -Verbose

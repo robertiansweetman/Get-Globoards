@@ -1,18 +1,16 @@
-function new-Board {
+function new-Column {
 
     param(
-        [Parameter(Mandatory = $true)]
-        [String]
-        $Name
+        $name,
+        $boardId
     )
 
 $bodyJson=@{
-name=$Name
+name=$name;
+position=0
 } | ConvertTo-Json
 
-    Write-Verbose "$bodyJson"
-
-    $link = "https://$url/boards?$token"
+    $link = "https://$url/boards/$boardId/columns?$token"
 
     Write-Verbose $link
 
@@ -20,7 +18,5 @@ name=$Name
     Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json' #-ErrorVariable err
     
     #Write-Verbose $err
-
-    # NOTE: there is a limit of 10 new boards per day for boards created via API
 
 }
