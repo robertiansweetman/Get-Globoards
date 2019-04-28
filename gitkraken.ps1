@@ -3,6 +3,7 @@
 . ($PSScriptRoot + "./reset-Boards.ps1")
 . ($PSScriptRoot + "./new-Board.ps1")
 . ($PSScriptRoot + "./Set-Column.ps1")
+. ($PSScriptRoot + "./Set-Card.ps1")
 
 # FIXME: Begin turning this into a module now before anyone else gets hurt!
 # NOTE: Update board needs to INCLUDE the 'get list' funtion for it to work <-- pay attention to this!
