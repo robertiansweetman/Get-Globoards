@@ -4,6 +4,7 @@
 . ($PSScriptRoot + "./new-Board.ps1")
 . ($PSScriptRoot + "./Set-Column.ps1")
 . ($PSScriptRoot + "./Set-Card.ps1")
+. ($PSScriptRoot + "./Get-Column.ps1")
 
 # FIXME: Begin turning this into a module now before anyone else gets hurt!
 # NOTE: Update board needs to INCLUDE the 'get list' funtion for it to work <-- pay attention to this!
@@ -19,11 +20,15 @@
 # TODO: can you mock this stuff using Pester? No idea. Leave this for now...
 # TODO: remove this later. It's only for testing the workflow at the moment
 # reset-Boards
-Write-Verbose "$boardId $boardName empty string"
+# Write-Verbose "$boardId $boardName empty string"
+
+Set-Variable -Name token -Value $token -Scope Global
 
 # New-Board -Name slimshady -Verbose
 
 # FIXME: Need to select Board or get a boards from list BEFORE running this to create a new column
 # TODO: figure out why -ErrorVariable and Write-Verbose in Invoke-RestMethod keeps breaking everything
 
-Set-Column -Name omonof -Verbose
+# Set-Card -Name "new-card" -description "some text goes here"
+
+Get-Column

@@ -8,14 +8,22 @@ function Set-Card {
         # TODO: check other params to add
     )
 
-    $boardId = Get-Board
+    #$boardId = Get-Board
+
+    $columnId = Get-Column 
 
     # FIXME: this blob isn't going to work 'cause $description is "text": "string"
-$bodyJson=@{
-name=$name;
-description=$description;
-position=0
-} | ConvertTo-Json
+$bodyJson=@"
+{
+    "name": "$name",
+    "description": {
+        "text": "$description"
+    },
+    "position": 0,
+    "column_id": "$columnId"
+}
+"@
+    Write-Host $bodyJson
 
     $link = "https://$url/boards/$boardId/cards?$token"
 
