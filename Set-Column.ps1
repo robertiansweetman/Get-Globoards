@@ -19,8 +19,6 @@ position=0
     Write-Verbose $link
 
     # TODO: Consider better error handling at this step also...
-    Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json' #-ErrorVariable err
-    
-    #Write-Verbose $err
+    Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json'
 
 }

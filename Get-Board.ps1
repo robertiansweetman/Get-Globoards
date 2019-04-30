@@ -15,9 +15,7 @@ function Get-Board {
     Do { $boardChoice = Read-Host -Prompt "Select which board to update"} 
     while ((1..$listBoards.length) -notcontains $boardChoice)
     
-    $boardId = ($listBoards[$boardChoice - 1]).id #| Out-Host
-    
-    # $boardName = ($listboards[$boardChoice - 1]).name #| Out-Host
+    $boardId = ($listBoards[$boardChoice - 1]).id
     
     # TODO: check whether return is still needed if boardId is the last item in the function
     return $boardId

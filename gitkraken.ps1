@@ -12,23 +12,14 @@
 
 # TODO: function names SHOULD match the API calls they're making really...
 
-# TODO: is there a neater way to get this list and pipe it into the other functions?
-# $listBoards = list-Boards
+# FIXME: actually use PIPES to send results from one function to the next!!
 
-# TODO: Make this print the name and possibly the Id but in a much nicer format
+# TODO: use {0} {1} etc. and -f notation <== for strings! look this up
 
 # TODO: can you mock this stuff using Pester? No idea. Leave this for now...
-# TODO: remove this later. It's only for testing the workflow at the moment
-# reset-Boards
-# Write-Verbose "$boardId $boardName empty string"
 
 Set-Variable -Name token -Value $token -Scope Global
 
-# New-Board -Name slimshady -Verbose
-
-# FIXME: Need to select Board or get a boards from list BEFORE running this to create a new column
 # TODO: figure out why -ErrorVariable and Write-Verbose in Invoke-RestMethod keeps breaking everything
-
-# Set-Card -Name "new-card" -description "some text goes here"
 
 Get-Column

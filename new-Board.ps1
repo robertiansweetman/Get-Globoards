@@ -17,9 +17,7 @@ name=$Name
     Write-Verbose $link
 
     # TODO: Consider better error handling at this step also...
-    Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json' #-ErrorVariable err
-    
-    #Write-Verbose $err
+    Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json'
 
     # NOTE: there is a limit of 10 new boards per day for boards created via API
 
