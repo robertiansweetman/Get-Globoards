@@ -1,7 +1,7 @@
 . ($PSScriptRoot + "./secrets.ps1")
 . ($PSScriptRoot + "./Get-Board.ps1")
-. ($PSScriptRoot + "./reset-Boards.ps1")
-. ($PSScriptRoot + "./new-Board.ps1")
+. ($PSScriptRoot + "./Reset-Boards.ps1")
+. ($PSScriptRoot + "./New-Board.ps1")
 . ($PSScriptRoot + "./Set-Column.ps1")
 . ($PSScriptRoot + "./Set-Card.ps1")
 . ($PSScriptRoot + "./Get-Column.ps1")
@@ -18,8 +18,8 @@
 
 # TODO: can you mock this stuff using Pester? No idea. Leave this for now...
 
-Set-Variable -Name token -Value $token -Scope Global
+# Set-Variable -Name token -Value $token -Scope Global
 
 # TODO: figure out why -ErrorVariable and Write-Verbose in Invoke-RestMethod keeps breaking everything
 
-Get-Column
+Set-Card -Name testing -Description 'try to do this thing'

@@ -1,4 +1,4 @@
-function new-Board {
+function New-Board {
 
     param(
         [Parameter(Mandatory = $true)]
