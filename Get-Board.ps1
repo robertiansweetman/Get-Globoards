@@ -1,6 +1,6 @@
 function Get-Board {
 
-    $Boards = Invoke-RestMethod -Uri "https://$url/boards?$token" -Method Get -ContentType "application/json"
+    $Boards = Invoke-RestMethod -Uri "https://$url/boards?access_token=$token" -Method Get -ContentType "application/json"
     
     $listBoards = @()
     
@@ -17,7 +17,5 @@ function Get-Board {
     
     $boardId = ($listBoards[$boardChoice - 1]).id
     
-    # TODO: check whether return is still needed if boardId is the last item in the function
     return $boardId
-
 }

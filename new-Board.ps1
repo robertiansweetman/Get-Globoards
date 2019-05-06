@@ -12,7 +12,7 @@ name=$Name
 
     Write-Verbose "$bodyJson"
 
-    $link = "https://$url/boards?$token"
+    $link = "https://$url/boards?access_token=$token"
 
     Write-Verbose $link
 

@@ -8,9 +8,16 @@ function Set-Card {
         # TODO: check other params to add
     )
 
-    #$boardId = Get-Board
+    # need to replace this with something smarter
+    . ($PSScriptRoot + "./secrets.ps1")
 
-    $columnId = Get-Column 
+    $boardId = Get-Board
+
+    Write-Host "$boardId :boardId returned here"
+
+    $columnId = Get-ColumnId -boardId $boardId
+
+    Write-Host "description text: $description"
 
     # FIXME: this blob isn't going to work 'cause $description is "text": "string"
 $bodyJson=@"
@@ -23,13 +30,16 @@ $bodyJson=@"
     "column_id": "$columnId"
 }
 "@
+
     Write-Host $bodyJson
 
-    $link = "https://$url/boards/$boardId/cards?$token"
+    $newToken = ConvertTo-SecureString -String $token -AsPlainText -Force
+
+    $link = "https://$url/boards/"+ $boardId + "/cards"
 
     Write-Verbose $link
 
     # TODO: Consider better error handling at this step also...
-    Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json' 
+    Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json' -Token $newToken -Authentication Bearer
 
 }
