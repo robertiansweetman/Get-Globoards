@@ -4,18 +4,13 @@ function Get-ColumnId {
         $boardId
     )
 
-    Write-Host $boardId
-
     . ($PSScriptRoot + "./secrets.ps1")
 
-$newToken = ConvertTo-SecureString -String $token -AsPlainText -Force
+    $newToken = ConvertTo-SecureString -String $token -AsPlainText -Force
 
-$uri = "https://$url/boards/"+ $boardId + "?fields=columns"
+    $uri = "https://$url/boards/"+ $boardId + "?fields=columns"
 
-Write-Host $uri
-
-$Columns = Invoke-RestMethod -Uri $uri -Method GET -ContentType 'application/json' -Token $newToken -Authentication Bearer
-
+    $Columns = Invoke-RestMethod -Uri $uri -Method GET -ContentType 'application/json' -Token $newToken -Authentication Bearer
 
     $listColumns = @()
     
@@ -28,8 +23,6 @@ $Columns = Invoke-RestMethod -Uri $uri -Method GET -ContentType 'application/jso
         Write-Host "To update"($listColumns[$i]).columns.name"select:" ($1++ + 1)
     }
 
-    # NOTE: I miss-read the second API call when it's $url/boards/{board_id} <<=   
-    
     Do { $columnChoice = Read-Host -Prompt "Select which column to add card to"} 
     while ((1..$listColumns.length) -notcontains $columnChoice)
     

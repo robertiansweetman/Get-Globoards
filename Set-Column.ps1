@@ -12,8 +12,6 @@ name=$name;
 position=0
 } | ConvertTo-Json
 
-    
-
     $link = "https://$url/boards/$boardId/columns?$token"
 
     Write-Verbose $link
