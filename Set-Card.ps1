@@ -32,4 +32,8 @@ $bodyJson=@"
 
     # TODO: Parse returned JSON into something more human readable.
 
+    # TODO: Once a card has been set can you add comment Y/N at this point or is it a case of going back to the beginning? What's the testing process for this stuff?
+
+    # FIXME: Look at Pester in relation to mocking endpoints/calls
+
 }
