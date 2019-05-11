@@ -1,4 +1,4 @@
-function Set-Card {
+function New-Card {
 
     param(
         $name,
@@ -8,7 +8,7 @@ function Set-Card {
     # need to replace this with something smarter
     . ($PSScriptRoot + "./secrets.ps1")
 
-    $boardId = Get-Board
+    $boardId = Get-BoardId
 
     $columnId = Get-ColumnId -boardId $boardId
 

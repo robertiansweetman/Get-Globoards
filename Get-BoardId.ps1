@@ -1,4 +1,4 @@
-function Get-Board {
+function Get-BoardId {
 
     $Boards = Invoke-RestMethod -Uri "https://$url/boards?access_token=$token" -Method Get -ContentType "application/json"
     

@@ -1,16 +1,17 @@
-function Set-Column {
+function New-Column {
 
     param(
         $name
-        #$boardId
     )
 
-    $boardId = Get-Board
+    $boardId = Get-BoardId
 
-$bodyJson=@{
-name=$name;
-position=0
-} | ConvertTo-Json
+$bodyJson=@"
+{
+"name": "$name",
+"position": 0
+}
+"@
 
     $link = "https://$url/boards/$boardId/columns?$token"
 

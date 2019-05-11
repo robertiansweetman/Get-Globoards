@@ -1,4 +1,4 @@
-function Add-Comment {
+function New-Comment {
 
 param(
     [Parameter(Mandatory=$true)]
@@ -8,7 +8,7 @@ param(
     # need to replace this with something smarter
     . ($PSScriptRoot + "./secrets.ps1")
 
-    $boardId = Get-Board
+    $boardId = Get-BoardId
 
     $cardId = Get-CardId -boardId $boardId
     

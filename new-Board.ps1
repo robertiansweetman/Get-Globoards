@@ -3,12 +3,14 @@ function New-Board {
     param(
         [Parameter(Mandatory = $true)]
         [String]
-        $Name
+        $name
     )
 
-$bodyJson=@{
-name=$Name
-} | ConvertTo-Json
+$bodyJson=@"
+{
+"name": "$name"
+}
+"@
 
     Write-Verbose "$bodyJson"
 
