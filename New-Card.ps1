@@ -5,9 +5,6 @@ function New-Card {
         $description
     )
 
-    # need to replace this with something smarter
-    . ($PSScriptRoot + "./secrets.ps1")
-
     $boardId = Get-BoardId
 
     $columnId = Get-ColumnId -boardId $boardId

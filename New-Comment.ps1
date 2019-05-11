@@ -5,9 +5,6 @@ param(
     [string]$comment
 )
 
-    # need to replace this with something smarter
-    . ($PSScriptRoot + "./secrets.ps1")
-
     $boardId = Get-BoardId
 
     $cardId = Get-CardId -boardId $boardId

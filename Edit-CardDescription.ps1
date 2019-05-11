@@ -5,9 +5,6 @@ function edit-CardDescription {
         [string]$description
     )
     
-    # need to replace this with something smarter
-    . ($PSScriptRoot + "./secrets.ps1")
-    
     $boardId = Get-Board
     
     $cardId = Get-CardId -boardId $boardId

@@ -4,8 +4,6 @@ function Get-ColumnId {
         $boardId
     )
 
-    . ($PSScriptRoot + "./secrets.ps1")
-
     $newToken = ConvertTo-SecureString -String $token -AsPlainText -Force
 
     $uri = "https://$url/boards/"+ $boardId + "?fields=columns"

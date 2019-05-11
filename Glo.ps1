@@ -16,9 +16,21 @@
 4. Start using it to discover what's missing
 #>
 
-# FIXME: Make Secret values globally available in the session?
+# check secrets.ps1 file is referenced and contains values
+if (Test-Path -Path secrets.ps1 -IsValid) {
+    if (($Global:token -eq $null) -or ($Global:url -eq $null)) {
+        Write-Host "secrets.ps1 file is missing PAT Token or Url for Gitkraken" -ForegroundColor 'red'
+        exit 1
+    } 
+} else {
+    Write-Host "secrets.ps1 file missing - please read the documentation" -ForegroundColor 'red'
+    exit 1
+}
+
+# TODO: Decide whether to put this in the secrets file as it is or hoist it on module loading
+# $Global:token = $token
+
 # FIXME: change Edit-CardDescription to Edit -variable choice here (Description, name, etc.)
-# FIXME: run a funtion to alert if the secrets file values doesn't exist or the values are null
 # FIXME: Do I need to call 'Reset-Boards' at the end of an Edit/New action to null the input variables?
 # FIXME: Begin turning this into a module now before anyone else gets hurt!
 
@@ -37,4 +49,6 @@
 # TODO: Add a way of updating the same column over and over till you're done with path
 # TODO: Rename Reset-Boards function to something more descriptive...
 
-Edit-CardDescription -Description "Let's add this here"
+# Edit-CardDescription -Description "Let's add this here"
+
+# New-Card -Name 'some new card' -Description 'testing global variables for loading'
