@@ -16,9 +16,12 @@
 4. Start using it to discover what's missing
 #>
 
+# FIXME: Make Secret values globally available in the session?
+# FIXME: change Edit-CardDescription to Edit -variable choice here (Description, name, etc.)
+# FIXME: run a funtion to alert if the secrets file values doesn't exist or the values are null
 # FIXME: Do I need to call 'Reset-Boards' at the end of an Edit/New action to null the input variables?
-
 # FIXME: Begin turning this into a module now before anyone else gets hurt!
+
 # NOTE: Update board needs to INCLUDE the 'get list' funtion for it to work <-- pay attention to this!
 # NOTE: Is there an 'include' for powershell or are we .Sourcing everything? <-- redo 'creating modules' course...
 # NOTE: Can't returns from the API be managed as objects in a 'GUI LIKE' way so you don't have to keep stepping through the query flow to add a comment to a document? [see note below about pipes]
