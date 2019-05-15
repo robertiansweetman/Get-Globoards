@@ -1,7 +1,11 @@
 function New-Card {
 
     param(
+        [Parameter(Mandatory = $true)]
+        [String]
         $name,
+        [Parameter(Mandatory = $true)]
+        [String]
         $description
     )
 

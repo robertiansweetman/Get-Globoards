@@ -2,7 +2,8 @@ function New-Comment {
 
 param(
     [Parameter(Mandatory=$true)]
-    [string]$comment
+    [string]
+    $comment
 )
 
     $boardId = Get-BoardId

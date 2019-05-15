@@ -1,6 +1,8 @@
 function New-Column {
 
     param(
+        [Parameter(Mandatory = $true)]
+        [String]
         $name
     )
 
