@@ -1,3 +1,3 @@
-function reset-Boards {
+function Reset-Boards {
     $boardId = $null;
 }

@@ -1,7 +1,8 @@
 function Get-CardId {
 
     param(
-        $boardId
+        $boardId,
+        $actionMessage
     )
 
     $newToken = ConvertTo-SecureString -String $token -AsPlainText -Force
@@ -21,7 +22,7 @@ function Get-CardId {
         Write-Host "To update"($listCards[$i]).name"select:" ($1++ + 1)
     }
 
-    Do { $cardChoice = Read-Host -Prompt "Select which card to add comment to"} 
+    Do { $cardChoice = Read-Host -Prompt "$actionMessage"} 
     while ((1..$listCards.length) -notcontains $cardChoice)
     
     $cardId = ($listCards[$cardChoice - 1]).id    

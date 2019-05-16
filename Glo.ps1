@@ -6,9 +6,9 @@
 . ($PSScriptRoot + "./New-Card.ps1")
 . ($PSScriptRoot + "./Get-ColumnId.ps1")
 . ($PSScriptRoot + "./Get-CardId.ps1")
-. ($PSScriptRoot + "./Edit-CardDescription.ps1")
+. ($PSScriptRoot + "./Edit-Card.ps1")
 . ($PSScriptRoot + "./New-Comment.ps1")
-
+. ($PSScriptRoot + "./Remove-Card.ps1")
 <#
 1. Turn it into a module
 2. Add delete function - OR how to set a task as DONE
@@ -26,9 +26,6 @@ if (Test-Path -Path secrets.ps1 -IsValid) {
     Write-Host "secrets.ps1 file missing - please read the documentation" -ForegroundColor 'red'
     exit 1
 }
-
-# TODO: Decide whether to put this in the secrets file as it is or hoist it on module loading
-# $Global:token = $token
 
 # FIXME: change Edit-CardDescription to Edit -variable choice here (Description, name, etc.)
 # FIXME: Do I need to call 'Reset-Boards' at the end of an Edit/New action to null the input variables?
@@ -49,6 +46,8 @@ if (Test-Path -Path secrets.ps1 -IsValid) {
 # TODO: Add a way of updating the same column over and over till you're done with path
 # TODO: Rename Reset-Boards function to something more descriptive...
 
-# Edit-CardDescription -Description "Let's add this here"
+# Edit-Card -Name "Woohoow!" -Description "what happens now?"
 
 # New-Card -Name 'some new card' -Description 'testing global variables for loading'
+
+Remove-Card

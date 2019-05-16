@@ -8,7 +8,7 @@ param(
 
     $boardId = Get-BoardId
 
-    $cardId = Get-CardId -boardId $boardId
+    $cardId = Get-CardId -boardId $boardId -actionMessage "select which card to add comment to"
     
 $bodyJson=@"
 {
