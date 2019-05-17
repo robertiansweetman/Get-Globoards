@@ -1,6 +1,7 @@
 # TODO: Add 'list items' (cards?) function?
 # TODO: Format Write-Host items with color to make them easier to read
 # TODO: Bulk add to the same board/column?
+# TODO: Add explanations of functions to the README.md AND the module in the form of HELP
 
 # FIXME: Manifest needs to auto load and be included in this script so it's easy to test
 # FIXME: Add Pester tests
