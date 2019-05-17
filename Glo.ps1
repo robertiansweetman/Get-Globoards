@@ -1,14 +1,9 @@
-. ($PSScriptRoot + "./secrets.ps1")
-. ($PSScriptRoot + "./Get-BoardId.ps1")
-. ($PSScriptRoot + "./Reset-Boards.ps1")
-. ($PSScriptRoot + "./New-Board.ps1")
-. ($PSScriptRoot + "./New-Column.ps1")
-. ($PSScriptRoot + "./New-Card.ps1")
-. ($PSScriptRoot + "./Get-ColumnId.ps1")
-. ($PSScriptRoot + "./Get-CardId.ps1")
-. ($PSScriptRoot + "./Edit-Card.ps1")
-. ($PSScriptRoot + "./New-Comment.ps1")
-. ($PSScriptRoot + "./Remove-Card.ps1")
+# FIXME: Manifest needs to auto load and be included in this script so it's easy to test
+# FIXME: Add Pester tests
+
+# TODO: use a function of the module to check that there is a Secrets file available
+# TODO: OR put this global value in the psd1 file?
+
 <#
 1. Turn it into a module
 2. Add delete function - OR how to set a task as DONE
@@ -16,6 +11,7 @@
 4. Start using it to discover what's missing
 #>
 
+# TODO: This check can be done in the PSD1 file or the values can be stored there possibly...?
 # check secrets.ps1 file is referenced and contains values
 if (Test-Path -Path secrets.ps1 -IsValid) {
     if (($Global:token -eq $null) -or ($Global:url -eq $null)) {
