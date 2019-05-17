@@ -1,3 +1,5 @@
+# TODO: Add 'list items' (cards?) function?
+
 # FIXME: Manifest needs to auto load and be included in this script so it's easy to test
 # FIXME: Add Pester tests
 
@@ -23,9 +25,7 @@ if (Test-Path -Path secrets.ps1 -IsValid) {
     exit 1
 }
 
-# FIXME: change Edit-CardDescription to Edit -variable choice here (Description, name, etc.)
-# FIXME: Do I need to call 'Reset-Boards' at the end of an Edit/New action to null the input variables?
-# FIXME: Begin turning this into a module now before anyone else gets hurt!
+# FIXME: Do I need to call 'Reset-Glo' at the end of an Edit/New action to null the input variables?
 
 # NOTE: Update board needs to INCLUDE the 'get list' funtion for it to work <-- pay attention to this!
 # NOTE: Is there an 'include' for powershell or are we .Sourcing everything? <-- redo 'creating modules' course...

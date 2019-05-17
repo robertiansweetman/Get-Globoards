@@ -9,7 +9,7 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-# RootModule = ''
+RootModule = './Glo.psm1'
 
 # Version number of this module.
 ModuleVersion = '1.0'
@@ -33,7 +33,7 @@ Copyright = '(c) RobertSweetman. All rights reserved.'
 Description = "Add, Edit and Delete tasks in GitKraken's GLO task manager for developers"
 
 # Minimum version of the PowerShell engine required by this module
-PowerShellVersion = '3'
+PowerShellVersion = '3.0'
 
 # Name of the PowerShell host required by this module
 # PowerShellHostName = ''
