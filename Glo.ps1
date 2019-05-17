@@ -46,4 +46,4 @@ if (Test-Path -Path secrets.ps1 -IsValid) {
 
 # New-Card -Name 'some new card' -Description 'testing global variables for loading'
 
-Remove-Card
+# Remove-Card

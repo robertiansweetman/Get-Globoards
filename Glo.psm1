@@ -1,6 +1,6 @@
 . ($PSScriptRoot + "./secrets.ps1")
 . ($PSScriptRoot + "./Get-BoardId.ps1")
-. ($PSScriptRoot + "./Reset-Boards.ps1")
+. ($PSScriptRoot + "./Reset-Glo.ps1")
 . ($PSScriptRoot + "./New-Board.ps1")
 . ($PSScriptRoot + "./New-Column.ps1")
 . ($PSScriptRoot + "./New-Card.ps1")
