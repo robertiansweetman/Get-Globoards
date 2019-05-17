@@ -16,6 +16,7 @@
 4. Start using it to discover what's missing
 #>
 
+# FIXME: put this code in the module loading checks OR host the variables in the module
 # TODO: This check can be done in the PSD1 file or the values can be stored there possibly...?
 # check secrets.ps1 file is referenced and contains values
 if (Test-Path -Path secrets.ps1 -IsValid) {
