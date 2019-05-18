@@ -3,11 +3,11 @@ function Edit-Card {
     [CmdletBinding(DefaultParameterSetName='Description')]
     param(
         [Parameter(ParameterSetName = 'Description')]
-        [string]$description,
+        [string]$Description,
         
         [Parameter(ParameterSetName = 'Name')]
         [string]
-        $name
+        $Name
     )
     
     $boardId = Get-BoardId

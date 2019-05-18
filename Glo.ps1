@@ -3,22 +3,18 @@
 # TODO: Bulk add to the same board/column?
 # TODO: Add explanations of functions to the README.md AND the module in the form of HELP
 
-# FIXME: Manifest needs to auto load and be included in this script so it's easy to test
 # FIXME: Add Pester tests
 
 # TODO: use a function of the module to check that there is a Secrets file available
 # TODO: OR put this global value in the psd1 file?
 
-<#
-1. Turn it into a module
-2. Add delete function - OR how to set a task as DONE
-3. Pester tests
-4. Start using it to discover what's missing
-#>
-
 # FIXME: put this code in the module loading checks OR host the variables in the module
 # TODO: This check can be done in the PSD1 file or the values can be stored there possibly...?
 # check secrets.ps1 file is referenced and contains values
+
+# Set-Variable -Name PAT -Value <PAT GOES HERE> -Scope Global
+
+<#
 if (Test-Path -Path secrets.ps1 -IsValid) {
     if (($Global:token -eq $null) -or ($Global:url -eq $null)) {
         Write-Host "secrets.ps1 file is missing PAT Token or Url for Gitkraken" -ForegroundColor 'red'
@@ -28,6 +24,7 @@ if (Test-Path -Path secrets.ps1 -IsValid) {
     Write-Host "secrets.ps1 file missing - please read the documentation" -ForegroundColor 'red'
     exit 1
 }
+#>
 
 # FIXME: Do I need to call 'Reset-Glo' at the end of an Edit/New action to null the input variables?
 
@@ -46,8 +43,14 @@ if (Test-Path -Path secrets.ps1 -IsValid) {
 # TODO: Add a way of updating the same column over and over till you're done with path
 # TODO: Rename Reset-Boards function to something more descriptive...
 
-# Edit-Card -Name "Woohoow!" -Description "what happens now?"
-
 # New-Card -Name 'some new card' -Description 'testing global variables for loading'
 
-# Remove-Card
+# NOTE: script needs to be run in an elevated shell to copy updates to the PSModule
+
+# Uninstall-Module -Name Glo
+
+$destination = $env:PSModulePath.split(';')[2] + "\Glo"
+
+Copy-Item -Path '.\Edit*','.\Get*','.\Glo.psd1','.\Glo.psm1','.\New*','.\Remove*','.\secrets.ps1','.\README.md' -Destination $destination -Force 
+
+Import-Module -Name Glo -Force

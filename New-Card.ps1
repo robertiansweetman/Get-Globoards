@@ -3,10 +3,10 @@ function New-Card {
     param(
         [Parameter(Mandatory = $true)]
         [String]
-        $name,
+        $Name,
         [Parameter(Mandatory = $true)]
         [String]
-        $description
+        $Description
     )
 
     $boardId = Get-BoardId
@@ -15,9 +15,9 @@ function New-Card {
 
 $bodyJson=@"
 {
-    "name": "$name",
+    "name": "$Name",
     "description": {
-        "text": "$description"
+        "text": "$Description"
     },
     "position": 0,
     "column_id": "$columnId"

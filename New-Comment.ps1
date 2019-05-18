@@ -3,7 +3,7 @@ function New-Comment {
 param(
     [Parameter(Mandatory=$true)]
     [string]
-    $comment
+    $Comment
 )
 
     $boardId = Get-BoardId
@@ -12,7 +12,7 @@ param(
     
 $bodyJson=@"
 {
-"text": "$comment"
+"text": "$Comment"
 }
 "@
 

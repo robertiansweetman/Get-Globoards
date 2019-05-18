@@ -3,14 +3,14 @@ function New-Column {
     param(
         [Parameter(Mandatory = $true)]
         [String]
-        $name
+        $Name
     )
 
     $boardId = Get-BoardId
 
 $bodyJson=@"
 {
-"name": "$name",
+"name": "$Name",
 "position": 0
 }
 "@

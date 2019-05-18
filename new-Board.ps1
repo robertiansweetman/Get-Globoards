@@ -3,12 +3,12 @@ function New-Board {
     param(
         [Parameter(Mandatory = $true)]
         [String]
-        $name
+        $Name
     )
 
 $bodyJson=@"
 {
-"name": "$name"
+"name": "$Name"
 }
 "@
 
