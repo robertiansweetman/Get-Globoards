@@ -7,12 +7,9 @@ function Get-CardList {
     $uri = "https://$url/boards/"+ $boardId + "/cards"
 
     $cards = Invoke-RestMethod -Uri $uri -Method GET -ContentType 'application/json' -Token $newToken -Authentication Bearer
-
-    $listCards = @()
     
     foreach ($item in $cards) {
-        $listCards += $item
-        Write-Host ($listCards).name -ForegroundColor Green
+        Write-Host ($item).name -ForegroundColor Green
     }
 
 }
