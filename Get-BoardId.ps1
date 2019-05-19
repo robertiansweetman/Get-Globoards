@@ -1,5 +1,10 @@
 function Get-BoardId {
 
+    param(
+        [string]
+        $Message
+    )
+
     $Boards = Invoke-RestMethod -Uri "https://$url/boards?access_token=$token" -Method Get -ContentType "application/json"
     
     $listBoards = @()
@@ -12,7 +17,7 @@ function Get-BoardId {
         Write-Host "To update"($listBoards[$i]).name"select:" ($1++ + 1)
     }
     
-    Do { $boardChoice = Read-Host -Prompt "Select which board to update"} 
+    Do { $boardChoice = Read-Host -Prompt $message} 
     while ((1..$listBoards.length) -notcontains $boardChoice)
     
     $boardId = ($listBoards[$boardChoice - 1]).id

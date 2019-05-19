@@ -1,6 +1,6 @@
 function Get-CardList {
 
-    $boardId = Get-BoardId
+    $boardId = Get-BoardId -Message "List items for Board number [?]"
 
     $newToken = ConvertTo-SecureString -String $token -AsPlainText -Force
 
@@ -12,7 +12,7 @@ function Get-CardList {
     
     foreach ($item in $cards) {
         $listCards += $item
-        Write-Host ($listCards).name
+        Write-Host ($listCards).name -ForegroundColor Green
     }
 
 }
