@@ -9,3 +9,4 @@
 . ($PSScriptRoot + "./Edit-Card.ps1")
 . ($PSScriptRoot + "./New-Comment.ps1")
 . ($PSScriptRoot + "./Remove-Card.ps1")
+. ($PSScriptRoot + "./Get-CardList.ps1")
