@@ -6,7 +6,7 @@ param(
     $Comment
 )
 
-    $boardId = Get-BoardId
+    $boardId = Get-BoardId -Message "Which board contains the card you want to add the comment to?"
 
     $cardId = Get-CardId -boardId $boardId -actionMessage "select which card to add comment to"
     

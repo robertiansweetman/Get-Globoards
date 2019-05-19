@@ -6,7 +6,7 @@ function New-Column {
         $Name
     )
 
-    $boardId = Get-BoardId
+    $boardId = Get-BoardId -Message "Which board do you want to add a new column to?"
 
 $bodyJson=@"
 {

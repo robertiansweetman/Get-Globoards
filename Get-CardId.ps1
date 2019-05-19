@@ -15,14 +15,13 @@ function Get-CardId {
     
     foreach ($item in $cards) {
         $listCards += $item
-        Write-Host ($listCards).name
     }
 
     for ($i = 0; $i -lt $listCards.length; $i++) {
         Write-Host "To update"($listCards[$i]).name"select:" ($1++ + 1)
     }
 
-    Do { $cardChoice = Read-Host -Prompt "$actionMessage"} 
+    Do { $cardChoice = Read-Host -Prompt $actionMessage} 
     while ((1..$listCards.length) -notcontains $cardChoice)
     
     $cardId = ($listCards[$cardChoice - 1]).id    

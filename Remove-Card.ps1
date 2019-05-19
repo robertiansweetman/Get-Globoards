@@ -1,8 +1,6 @@
 function Remove-Card {
 
-# /boards/{board_id}/cards/{card_id}
-
-    $boardId = Get-BoardId
+    $boardId = Get-BoardId -Message "Which board contains the card you want to remove?"
     
     $cardId = Get-CardId -boardId $boardId -actionMessage "select which card to DELETE"
 

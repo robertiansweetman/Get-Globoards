@@ -4,12 +4,13 @@ function Get-CardList {
 
     $newToken = ConvertTo-SecureString -String $token -AsPlainText -Force
 
-    $uri = "https://$url/boards/"+ $boardId + "/cards"
+    $uri = "https://$url/boards/"+ $boardId + "/cards?fields=description,name,column_id,board_id"
 
     $cards = Invoke-RestMethod -Uri $uri -Method GET -ContentType 'application/json' -Token $newToken -Authentication Bearer
     
     foreach ($item in $cards) {
         Write-Host ($item).name -ForegroundColor Green
+        Write-Host "Description:"($item).description.text -ForegroundColor Yellow
     }
 
 }

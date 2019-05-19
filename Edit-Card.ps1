@@ -10,9 +10,9 @@ function Edit-Card {
         $Name
     )
     
-    $boardId = Get-BoardId
+    $boardId = Get-BoardId -Message "Pick the board containing the card you want to edit" 
     
-    $cardId = Get-CardId -boardId $boardId
+    $cardId = Get-CardId -boardId $boardId -actionMessage 'Which card do you want to edit?'
 
     # TODO: Honestly, should probably pull back the description text and make it editable in the command line INSTEAD OF how it currently works which is by over-writing it... 
     # NOTE: This would be MUCH BETTER for real use where the description is the main part of 'you should do this'...
