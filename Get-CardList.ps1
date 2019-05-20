@@ -13,4 +13,6 @@ function Get-CardList {
         Write-Host "Description:"($item).description.text -ForegroundColor Yellow
     }
 
+    # TODO: Can you assign values to these and then edit them from here?
+
 }
