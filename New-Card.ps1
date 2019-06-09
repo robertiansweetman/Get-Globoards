@@ -31,8 +31,6 @@ $bodyJson=@"
     # TODO: Consider better error handling at this step also...
     Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'application/json' -Token $newToken -Authentication Bearer
 
-<#
-
     Do { $addMoreCards = Read-Host -Prompt "Add Another Card? [y/n]" 
 
         if ($addMoreCards -eq 'y') {
@@ -56,7 +54,7 @@ Invoke-RestMethod -Method Post -Body $bodyJson -Uri $link -ContentType 'applicat
         }
 
     }
-    While ($addMoreCards -ne 'y')
+    Until ($addMoreCards -eq 'n')
 
     #>
     
